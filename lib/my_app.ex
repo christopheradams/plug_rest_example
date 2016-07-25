@@ -10,6 +10,7 @@ defmodule MyApp do
     children = [
       # Starts a worker by calling: MyApp.Worker.start_link(arg1, arg2, arg3)
       # worker(MyApp.Worker, [arg1, arg2, arg3]),
+      Plug.Adapters.Cowboy.child_spec(:http, MyApp.Router, [], [port: 4001])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
