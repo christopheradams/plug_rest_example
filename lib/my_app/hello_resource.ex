@@ -1,5 +1,5 @@
 defmodule MyApp.HelloResource do
-  @behaviour PlugRest.Resource
+  use PlugRest.Resource
 
   def allowed_methods(conn, state) do
     {["GET"], conn, state}
