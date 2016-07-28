@@ -2,6 +2,7 @@ defmodule MyApp.Router do
   use PlugRest.Router
 
   resource "/hello", MyApp.HelloResource
+  resource "/users/:username", MyApp.UserResource
 
   match "/match" do
    send_resp(conn, 200, "Match")
