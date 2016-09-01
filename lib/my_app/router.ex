@@ -7,6 +7,9 @@ defmodule MyApp.Router do
 
   use Plug.ErrorHandler
 
+  plug :match
+  plug :dispatch
+
   resource "/hello", MyApp.HelloResource
   resource "/users/:username", MyApp.UserResource
 

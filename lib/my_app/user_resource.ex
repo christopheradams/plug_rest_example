@@ -10,7 +10,7 @@ defmodule MyApp.UserResource do
   end
 
   def to_html(conn, state) do
-    params = read_path_params(conn)
+    params = conn.params
     username = params["username"]
     {"Hello, #{username}", conn, state}
   end
