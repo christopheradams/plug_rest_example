@@ -14,6 +14,7 @@ defmodule MyApp.Router do
   plug :match
   plug :dispatch
 
+  resource "/gen", MyApp.GenResource
   resource "/hello", MyApp.HelloResource
   resource "/users/:username", MyApp.UserResource
   resource "/greeting/:username", MyApp.UserResource, "Welcome"
