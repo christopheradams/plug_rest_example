@@ -18,6 +18,6 @@ defmodule MyApp.Mixfile do
   defp deps do
     [{:cowboy, "~> 1.0.0"},
      {:plug, "~> 1.0"},
-     {:plug_rest, path: "/home/christopher/Documents/Repositories/github.com/christopheradams/plug_rest"}]
+     {:plug_rest, "~> 0.10.0"}]
   end
 end

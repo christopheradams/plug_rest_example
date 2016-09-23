@@ -12,4 +12,10 @@ defmodule MyApp.UserResourceTest do
     assert conn.status == 200
     assert conn.resp_body == "Hello, jose"
   end
+
+  test "GET /greeting/:username" do
+    conn = conn(:get, "/greeting/everyone")
+    conn = Router.call(conn, [])
+    assert conn.resp_body == "Welcome, everyone"
+  end
 end

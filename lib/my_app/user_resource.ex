@@ -1,6 +1,14 @@
 defmodule MyApp.UserResource do
   use PlugRest.Resource
 
+  def init(conn, []) do
+    {:ok, conn, "Hello"}
+  end
+
+  def init(conn, greeting) do
+    {:ok, conn, greeting}
+  end
+
   def allowed_methods(conn, state) do
     {["GET"], conn, state}
   end
@@ -9,9 +17,8 @@ defmodule MyApp.UserResource do
     {[{"text/html", :to_html}], conn, state}
   end
 
-  def to_html(conn, state) do
-    params = conn.params
-    username = params["username"]
-    {"Hello, #{username}", conn, state}
+  def to_html(%{params: params} = conn, greeting) do
+    %{"username" => username} = params
+    {"#{greeting}, #{username}", conn, greeting}
   end
 end
